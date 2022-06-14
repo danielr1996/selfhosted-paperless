@@ -23,6 +23,8 @@ services:
       - tika
     ports:
       - 8000:8000
+    labels:
+      - "traefik.http.routers.paperless.rule=Host(`paperless.app.danielr1996.de`)"
     healthcheck:
       test: ["CMD", "curl", "-fs", "-S", "--max-time", "2", "http://localhost:8000"]
       interval: 30s
