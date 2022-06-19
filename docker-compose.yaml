@@ -22,9 +22,13 @@ services:
       - gotenberg
       - tika
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.paperless.rule=Host(`paperless.app.danielr1996.de`)"
-      - "traefik.http.routers.paperless.tls.certresolver=letsencrypt"
+      traefik.enable: true
+      traefik.http.routers.paperless.rule: Host(`paperless.app.danielr1996.de`)
+      traefik.http.routers.paperless.tls.certresolver: letsencrypt
+      de.danielr1996.bashdoard.name: Paperless
+      de.danielr1996.bashdoard.url: https://paperless.app.danielr1996.de
+      de.danielr1996.bashdoard.icon: /favicon.ico
+      de.danielr1996.bashdoard.id: paperless
     healthcheck:
       test: ["CMD", "curl", "-fs", "-S", "--max-time", "2", "http://localhost:8000"]
       interval: 30s
